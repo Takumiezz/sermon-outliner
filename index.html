@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#3b5e8a">
+<link rel="manifest" href="manifest.json">
+<title>讲道大纲生成器 | 圣经和合本</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="app-header">
+<h1>&#x8BB2;&#x9053;&#x5927;&#x7EB2;&#x751F;&#x6210;&#x5668;</h1>
+<p class="subtitle">&#x57FA;&#x7763;&#x6559;&#x548C;&#x5408;&#x672C;&#x2014;&#x2014;&#x7ECF;&#x6587;&#x68C0;&#x7D22;&middot;&#x5927;&#x7EB2;&#x81EA;&#x52A8;&#x751F;&#x6210;</p>
+</header>
+<div class="container">
+<div class="selector-section">
+<h2>&#x7ECF;&#x6587;&#x9009;&#x62E9;</h2>
+<div class="selector-row">
+<div class="selector-group">
+<label for="testament">&#x65B0;/&#x65E7;&#x7EA6;</label>
+<select id="testament"><option value="all">&#x5168;&#x90E8;</option><option value="&#x65E7;&#x7EA6;">&#x65E7;&#x7EA6;</option><option value="&#x65B0;&#x7EA6;">&#x65B0;&#x7EA6;</option></select>
+</div>
+<div class="selector-group">
+<label for="book">&#x5377;</label>
+<select id="book"><option value="">&#x8BF7;&#x9009;&#x62E9;&#x5377;</option></select>
+</div>
+<div class="selector-group">
+<label for="chapter">&#x7AE0;</label>
+<select id="chapter"><option value="">&#x8BF7;&#x9009;&#x7AE0;</option></select>
+</div>
+<div class="selector-group">
+<label for="startVerse">&#x8D77;&#x59CB;&#x8282;</label>
+<select id="startVerse"><option value="">-</option></select>
+</div>
+<div class="selector-group">
+<label for="endVerse">&#x7EC8;&#x6B62;&#x8282;</label>
+<select id="endVerse"><option value="">-</option></select>
+</div>
+</div>
+<div class="quick-input-row">
+<label>&#x5FEB;&#x901F;&#x8F93;&#x5165;:</label>
+<input type="text" id="quickRef" placeholder="&#x4F8B;&#x5982;: &#x521B;1:1-5 &#x6216; &#x592A;5:3-10">
+<button class="btn btn-sm btn-outline" onclick="parseQuickRef()">&#x8DF3;&#x8F6C;</button>
+</div>
+</div>
+<div class="passage-section" id="passageSection">
+<div class="passage-header">
+<h3 id="passageTitle">&#x7ECF;&#x6587;&#x5185;&#x5BB9;</h3>
+<span class="passage-meta" id="passageMeta"></span>
+</div>
+<div class="passage-text" id="passageText"></div>
+</div>
+<div style="text-align:center;margin-bottom:1.25rem;">
+<button class="btn btn-accent" id="generateBtn" onclick="generateOutline()" disabled>&#x751F;&#x6210;&#x8BB2;&#x9053;&#x5927;&#x7EB2;</button>
+</div>
+<div class="loading" id="loading">
+<p>&#x2744;&#xFE0F; &#x6B63;&#x5728;&#x751F;&#x6210;&#x5927;&#x7EB2;&#xFF0C;&#x8BF7;&#x7A0D;&#x5019;&#x2026;&#x2026;</p>
+</div>
+<div class="outline-section" id="outlineSection"></div>
+</div>
+<script src="js/bible-text.js"></script>
+<script src="js/bible-data.js"></script>
+<script src="js/outline-generator.js"></script>
+<script src="js/app.js"></script>
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load', function(){
+    navigator.serviceWorker.register('sw.js');
+  });
+}
+</script>
+</body>
+</html>
