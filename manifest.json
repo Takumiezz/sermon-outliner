@@ -1,0 +1,21 @@
+{
+  "name": "讲道大纲生成器",
+  "short_name": "讲道大纲",
+  "description": "基于圣经和合本的讲道大纲生成工具",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5f0eb",
+  "theme_color": "#3b5e8a",
+  "icons": [
+    {
+      "src": "icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
