@@ -410,3 +410,4 @@ T[66] = {}; T[66][21] = [
 T.getText = function(b,c) { return (this[b]&&this[b][c])||null; };
 T.hasText = function(b,c) { return !!(this[b]&&this[b][c]); };
 })();
+if (typeof module !== 'undefined' && module.exports) { module.exports = BibleText; }
